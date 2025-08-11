@@ -40,15 +40,14 @@ public:
     ab*cd-+
     */
 
-   std::string formatExpression() {
+   void formatExpression() {
         std::string formated = "";
-        for (char c : entryExpression) {
+        for (char c : this->entryExpression) {
             if (c != ' ') {
                 formated += c;
             }
         }
-        entryExpression = formated;
-        return entryExpression;
+        this->entryExpression = formated;
    }
    
     bool isOperator(char c) {
@@ -61,7 +60,8 @@ public:
 
    std::string translate() {
     std::string result = "";
-        for (char c : entryExpression) {
+    formatExpression();
+        for (char c : this->entryExpression) {
             std::string op{c};
             if (isalnum(c)) {
                 result += c;

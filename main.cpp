@@ -2,11 +2,11 @@
 #include "infixToRPN.h"
 
 int main() {
-    std::string exp = "a+b*(c^d-e)^(f+g*h)-i";
+    std::string exp = "";
+    std::cout << "Input your expression to translate: ";
+    std::getline(std::cin, exp);
+    
     InfixTranslator lol(exp);
-
-    lol.formatExpression();
-
     std::cout << lol.translate();
     return 0;
 }
