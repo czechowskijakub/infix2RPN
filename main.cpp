@@ -2,11 +2,11 @@
 #include "infixToRPN.h"
 
 int main() {
-    std::string exp = "";
+    std::string expression = "";
     std::cout << "Input your expression to translate: ";
-    std::getline(std::cin, exp);
+    std::getline(std::cin, expression);
     
-    InfixTranslator lol(exp);
-    std::cout << lol.translate();
+    InfixTranslator test(expression);
+    std::cout << test.translate();
     return 0;
 }

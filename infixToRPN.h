@@ -48,7 +48,7 @@ public:
             }
         }
         this->entryExpression = formated;
-   }
+    }
    
     bool isOperator(char c) {
         return precedence.count(c) > 0;
@@ -58,9 +58,9 @@ public:
     // res ab*cd
     // stk +/
 
-   std::string translate() {
-    std::string result = "";
-    formatExpression();
+    std::string translate() {
+        std::string result = "";
+        formatExpression();
         for (char c : this->entryExpression) {
             std::string op{c};
             if (isalnum(c)) {
