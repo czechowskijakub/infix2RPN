@@ -72,12 +72,16 @@ public:
         if (isEmpty()) {
             std::cout << "Nothing to erase...";
         } else if (size == 1) {
+            Node<T>* temp = this->tail;
             this->tail = nullptr;
             this->head = nullptr;
+            delete temp;
             size--;
         } else {
+            Node<T>* temp = this->tail;
             this->tail = this->tail->prev;
             this->tail->next = nullptr;
+            delete temp;
             size--;
         }
         
@@ -87,14 +91,30 @@ public:
         if (isEmpty()) {
             std::cout << "Nothing to erase...";
         } else if (size == 1) {
+            Node<T>* temp = this->head;
             this->tail = nullptr;
             this->head = nullptr;
+            delete temp;
             size--;
         } else {
+            Node<T>* temp = this->head;
             this->head = this->head->next;
             this->head->prev = nullptr;
+            delete temp;
             size--;
         }
+    }
+
+    ~LinkedList() {
+        Node<T>* current = head;
+        while (current != nullptr) {
+            Node<T>* nextNode = current->next;
+            delete current;
+            current = nextNode;
+        }
+        head = nullptr;
+        tail = nullptr;
+        size = 0;
     }
 };
   

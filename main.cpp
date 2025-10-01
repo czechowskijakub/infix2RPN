@@ -1,12 +1,14 @@
 #include <iostream>
 #include "infixToRPN.h"
 
+void testPrimary(InfixTranslator& input) {
+    std::string test{ "ab+" };
+    if (input.translate() == test) { std::cout << "true" << '\n'; }
+    else { std::cout << "false" << '\n'; }
+}
+
 int main() {
-    std::string expression = "";
-    std::cout << "Input your expression to translate: ";
-    std::getline(std::cin, expression);
-    
-    InfixTranslator test(expression);
-    std::cout << test.translate();
+    InfixTranslator test("a + b");
+    testPrimary(test);
     return 0;
 }
